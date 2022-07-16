@@ -5,7 +5,7 @@ OMO Online Motorcycle App
 ##Nama Produk : OMO (Online Motorcycle)
 
 ## Overview Produk
-Omo Api adalah API untuk produk OMO (Online Motorcyc) berisi aplikasi untuk UI register customer, login customer dan get custmer serta menyediakan UI untuk register driver, login driver dan get driver
+Omo Api adalah API untuk produk OMO (Online Motorcycle) berisi aplikasi untuk UI Android App register customer, login customer dan get custmer serta menyediakan UI untuk register driver, login driver dan get driver
 
 ## Base Url
 https://omo-online-motorcycle-api.herokuapp.com/
