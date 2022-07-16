@@ -60,4 +60,16 @@
         android:id="@+id/tv_token"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_get_driver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Customer" />
+
+    <TextView
+        android:id="@+id/tv_driver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

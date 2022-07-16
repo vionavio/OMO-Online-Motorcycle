@@ -2,6 +2,7 @@ package com.viona.omo.ui.driver.login
 
 import android.content.Intent
 import android.os.Bundle
+import com.viona.omo.data.entity.driver.getdriver.Driver
 import com.viona.omo.data.entity.driver.login.LoginDriver
 import com.viona.omo.data.entity.driver.login.LoginDriverRequest
 import com.viona.omo.data.response.base.ErrorResponse
@@ -35,6 +36,11 @@ class LoginDriverActivity : ScopeActivity() {
             startActivity(intent)
         }
         viewModel.subscribeDriver(subscribeDriver())
+        
+        binding.btnGetDriver.setOnClickListener { 
+            viewModel.getDriver()
+        }
+        viewModel.subscribeGetDriver(subscribeGetCustomer())
     }
 
     private fun subscribeDriver() = object: StateEventSubscriber<LoginDriver> {
@@ -52,6 +58,25 @@ class LoginDriverActivity : ScopeActivity() {
 
         override fun onSuccess(data: LoginDriver) {
             binding.tvToken.append("$data..\n")
+        }
+
+    }
+
+    private fun subscribeGetCustomer() = object : StateEventSubscriber<Driver> {
+        override fun onIdle() {
+            binding.tvDriver.append("idle..\n")
+        }
+
+        override fun onLoading() {
+            binding.tvDriver.append("loading..\n")
+        }
+
+        override fun onFailure(throwable: ErrorResponse) {
+            binding.tvDriver.append("${throwable.message}..\n")
+        }
+
+        override fun onSuccess(data: Driver) {
+            binding.tvDriver.append("$data..\n")
         }
 
     }

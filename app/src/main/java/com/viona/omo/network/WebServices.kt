@@ -32,8 +32,8 @@ interface WebServices {
         @Header("Authorization") token: String
     ): Response<CustomerResponse>
 
-
-
-
-
+    @GET(RemoteService.EndPoint.GET_DRIVER)
+    suspend fun getDriver(
+        @Header("Authorization") token: String
+    ): Response<DriverResponse>
 }

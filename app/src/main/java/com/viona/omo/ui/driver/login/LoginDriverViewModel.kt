@@ -2,6 +2,7 @@ package com.viona.omo.ui.driver.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.viona.omo.data.entity.driver.getdriver.Driver
 import com.viona.omo.data.entity.driver.login.LoginDriver
 import com.viona.omo.data.entity.driver.login.LoginDriverRequest
 import com.viona.omo.event.StateEventSubscriber
@@ -19,11 +20,21 @@ class LoginDriverViewModel(
 
     private val driverScope = driverManager.createScope(viewModelScope)
 
+    private val getDriver = driverRepository.getDriver
+
     fun subscribeDriver(subscriber: StateEventSubscriber<LoginDriver>) {
         convertEventToSubscriber(driverManager, subscriber)
     }
 
+    fun subscribeGetDriver(subscriber: StateEventSubscriber<Driver>) {
+        convertEventToSubscriber(getDriver, subscriber)
+    }
+
     fun loginDriver(request: LoginDriverRequest) = driverScope.launch {
         driverRepository.loginDriver(request)
+    }
+
+    fun getDriver() = driverScope.launch {
+        driverRepository.getDriver()
     }
 }
