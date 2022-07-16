@@ -1,12 +1,8 @@
 package com.viona.omo.network
 
-import com.viona.omo.data.response.LoginCustomerResponse
-import com.viona.omo.data.response.LoginDriverResponse
-import com.viona.omo.data.response.RegisterCustomerResponse
-import com.viona.omo.data.response.RegisterDriverResponse
+import com.viona.omo.data.response.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface WebServices {
 
@@ -30,6 +26,11 @@ interface WebServices {
     suspend fun registerDriver(
         @Body body: Map<String, String>
     ): Response<RegisterDriverResponse>
+
+    @GET(RemoteService.EndPoint.GET_CUSTOMER)
+    suspend fun getCustomer(
+        @Header("Authorization") token: String
+    ): Response<CustomerResponse>
 
 
 

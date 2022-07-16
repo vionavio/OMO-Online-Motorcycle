@@ -1,5 +1,6 @@
 package com.viona.omo.network
 
+import com.viona.omo.data.entity.customer.getcustomer.Customer
 import com.viona.omo.data.entity.customer.login.LoginCustomer
 import com.viona.omo.data.entity.customer.login.LoginCustomerRequest
 import com.viona.omo.data.entity.customer.register.RegisterCustomerRequest
@@ -8,6 +9,7 @@ import com.viona.omo.data.entity.driver.login.LoginDriverRequest
 import com.viona.omo.data.entity.driver.register.RegisterDriverRequest
 import com.viona.omo.data.mapper.CustomerMapper
 import com.viona.omo.data.mapper.DriverMapper
+import com.viona.omo.data.response.CustomerResponse
 import com.viona.omo.utils.FlowState
 import com.viona.omo.utils.Params
 import org.koin.core.annotation.Single
@@ -59,6 +61,13 @@ class NetworkSources(private val webServicesProvider: WebServiceProvider) {
         return networkHandling(
             callApi = { webServicesProvider.get().registerDriver(param) },
             processResponse = { it!!.data }
+        )
+    }
+
+    suspend fun getCustomer(): FlowState<Customer> {
+        return networkHandling(
+            callApi = { webServicesProvider.get().getCustomer(RemoteService.EndPoint.TOKEN_LOGIN_CUSTOMER)},
+            processResponse = {CustomerMapper.mapGetCustomer(it?.data)}
         )
     }
 }

@@ -2,6 +2,7 @@ package com.viona.omo.ui.customer.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.viona.omo.data.entity.customer.getcustomer.Customer
 import com.viona.omo.ui.customer.login.LoginCustomerActivity
 import com.viona.omo.data.entity.customer.login.LoginCustomer
 import com.viona.omo.data.entity.customer.login.LoginCustomerRequest
@@ -18,6 +19,7 @@ class LoginCustomerViewModel(
 ): ViewModel() {
 
     private val custManager = custRepository.custStateManager
+    private val getCustomer = custRepository.getCustomer
 
     private val custScope = custManager.createScope(viewModelScope)
 
@@ -25,8 +27,16 @@ class LoginCustomerViewModel(
         convertEventToSubscriber(custManager, subscriber)
     }
 
+    fun subscribeGetCustomer(subscriber: StateEventSubscriber<Customer>) {
+        convertEventToSubscriber(getCustomer, subscriber)
+    }
+
     fun loginCustomer(loginRequest: LoginCustomerRequest) = custScope.launch {
         custRepository.loginCustomer(loginRequest)
+    }
+
+    fun getCustomer() = custScope.launch {
+        custRepository.getCustomer()
     }
 
 }

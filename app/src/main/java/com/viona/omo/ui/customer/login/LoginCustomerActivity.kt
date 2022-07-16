@@ -2,6 +2,7 @@ package com.viona.omo.ui.customer.login
 
 import android.content.Intent
 import android.os.Bundle
+import com.viona.omo.data.entity.customer.getcustomer.Customer
 import com.viona.omo.data.entity.customer.login.LoginCustomer
 import com.viona.omo.data.entity.customer.login.LoginCustomerRequest
 import com.viona.omo.data.response.base.ErrorResponse
@@ -36,6 +37,11 @@ class LoginCustomerActivity : ScopeActivity() {
         }
 
         viewModel.subscribeCustomer(subscribeCustomer())
+
+        binding.btnGetCust.setOnClickListener {
+            viewModel.getCustomer()
+        }
+        viewModel.subscribeGetCustomer(subscribeGetCustomer())
     }
 
     private fun subscribeCustomer() = object : StateEventSubscriber<LoginCustomer> {
@@ -54,5 +60,24 @@ class LoginCustomerActivity : ScopeActivity() {
         override fun onSuccess(data: LoginCustomer) {
             binding.tvToken.append("$data..\n")
         }
+    }
+
+    private fun subscribeGetCustomer() = object : StateEventSubscriber<Customer> {
+        override fun onIdle() {
+            binding.tvCustomer.append("idle..\n")
+        }
+
+        override fun onLoading() {
+            binding.tvCustomer.append("loading..\n")
+        }
+
+        override fun onFailure(throwable: ErrorResponse) {
+            binding.tvCustomer.append("${throwable.message}..\n")
+        }
+
+        override fun onSuccess(data: Customer) {
+            binding.tvCustomer.append("$data..\n")
+        }
+
     }
 }
