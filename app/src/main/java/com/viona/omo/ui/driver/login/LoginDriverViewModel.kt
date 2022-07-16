@@ -1,4 +1,4 @@
-package com.viona.omo.ui.driver
+package com.viona.omo.ui.driver.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

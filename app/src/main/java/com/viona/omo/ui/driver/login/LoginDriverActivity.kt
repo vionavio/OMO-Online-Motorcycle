@@ -1,11 +1,13 @@
-package com.viona.omo.ui.driver
+package com.viona.omo.ui.driver.login
 
+import android.content.Intent
 import android.os.Bundle
 import com.viona.omo.data.entity.driver.login.LoginDriver
 import com.viona.omo.data.entity.driver.login.LoginDriverRequest
 import com.viona.omo.data.response.base.ErrorResponse
 import com.viona.omo.databinding.ActivityLoginDriverBinding
 import com.viona.omo.event.StateEventSubscriber
+import com.viona.omo.ui.driver.register.RegisterDriverActivity
 import org.koin.androidx.scope.ScopeActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -27,6 +29,10 @@ class LoginDriverActivity : ScopeActivity() {
                     binding.etPassword.text.toString()
                 )
             )
+        }
+        binding.btnRegisterDriver.setOnClickListener {
+            val intent = Intent(this, RegisterDriverActivity::class.java)
+            startActivity(intent)
         }
         viewModel.subscribeDriver(subscribeDriver())
     }

@@ -34,30 +34,46 @@
         android:inputType="textPassword"
         tools:ignore="LabelFor" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tv_vehicle_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vehicle Type" />
+
+    <EditText
+        android:id="@+id/et_vehicle_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Login Driver" />
-
-        <Button
-            android:id="@+id/btn_register_driver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="Register Driver" />
-
-
-    </LinearLayout>
+        android:importantForAutofill="no"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
 
     <TextView
-        android:id="@+id/tv_token"
+        android:id="@+id/tv_vehicle_regist_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vehicle Regist Number" />
+
+    <EditText
+        android:id="@+id/et_vehicle_regist_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
+
+
+    <Button
+        android:id="@+id/btn_register_driver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Register Driver" />
+
+
+    <TextView
+        android:id="@+id/tv_response"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
 </LinearLayout>
