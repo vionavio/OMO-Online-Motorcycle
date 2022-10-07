@@ -5,6 +5,7 @@
       <map>
         <entry key="../omo/app/src/main/res/layout/activity_home_customer.xml" value="0.23177083333333334" />
         <entry key="../omo/driver/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="../omo/features/cust/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login_customer.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_login_driver.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register_customer.xml" value="0.24375" />
