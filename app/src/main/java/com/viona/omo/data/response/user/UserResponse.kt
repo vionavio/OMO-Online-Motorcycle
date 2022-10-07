@@ -1,10 +1,11 @@
-package com.viona.omo.data.response
+package com.viona.omo.data.response.user
 
 import com.google.gson.annotations.SerializedName
-import com.viona.omo.data.entity.customer.getcustomer.CustomerResponseData
+import com.viona.omo.data.entity.user.getUser.UserResponseData
 import com.viona.omo.data.response.base.BaseResponse
 
-data class CustomerResponse(
+
+data class UserResponse(
     @SerializedName("status")
     override var status: Boolean = false,
 
@@ -12,6 +13,6 @@ data class CustomerResponse(
     override var message: String? = null,
 
     @SerializedName("data")
-    val data: CustomerResponseData
+    val data: UserResponseData
 
 ) : BaseResponse

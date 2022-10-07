@@ -1,8 +1,8 @@
-package com.viona.omo.data.entity.driver.login
+package com.viona.omo.data.entity.user.login
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginDriverResponseData(
+data class LoginUserResponseData(
     @SerializedName("token")
     val token: String? = null
 )

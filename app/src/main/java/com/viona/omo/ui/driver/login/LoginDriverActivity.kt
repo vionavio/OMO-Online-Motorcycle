@@ -2,9 +2,9 @@ package com.viona.omo.ui.driver.login
 
 import android.content.Intent
 import android.os.Bundle
-import com.viona.omo.data.entity.driver.getdriver.Driver
-import com.viona.omo.data.entity.driver.login.LoginDriver
-import com.viona.omo.data.entity.driver.login.LoginDriverRequest
+import com.viona.omo.data.entity.user.getUser.User
+import com.viona.omo.data.entity.user.login.LoginUser
+import com.viona.omo.data.entity.user.login.LoginUserRequest
 import com.viona.omo.data.response.base.ErrorResponse
 import com.viona.omo.databinding.ActivityLoginDriverBinding
 import com.viona.omo.event.StateEventSubscriber
@@ -25,7 +25,7 @@ class LoginDriverActivity : ScopeActivity() {
 
         binding.btnLogin.setOnClickListener {
             viewModel.loginDriver(
-                LoginDriverRequest(
+                LoginUserRequest(
                     binding.etUsername.text.toString(),
                     binding.etPassword.text.toString()
                 )
@@ -40,10 +40,10 @@ class LoginDriverActivity : ScopeActivity() {
         binding.btnGetDriver.setOnClickListener { 
             viewModel.getDriver()
         }
-        viewModel.subscribeGetDriver(subscribeGetCustomer())
+        viewModel.subscribeGetDriver(subscribeGetDriver())
     }
 
-    private fun subscribeDriver() = object: StateEventSubscriber<LoginDriver> {
+    private fun subscribeDriver() = object: StateEventSubscriber<LoginUser> {
         override fun onIdle() {
             binding.tvToken.append("idle..\n")
         }
@@ -56,13 +56,13 @@ class LoginDriverActivity : ScopeActivity() {
             binding.tvToken.append("${throwable.message}...\n")
         }
 
-        override fun onSuccess(data: LoginDriver) {
+        override fun onSuccess(data: LoginUser) {
             binding.tvToken.append("$data..\n")
         }
 
     }
 
-    private fun subscribeGetCustomer() = object : StateEventSubscriber<Driver> {
+    private fun subscribeGetDriver() = object : StateEventSubscriber<User> {
         override fun onIdle() {
             binding.tvDriver.append("idle..\n")
         }
@@ -75,7 +75,7 @@ class LoginDriverActivity : ScopeActivity() {
             binding.tvDriver.append("${throwable.message}..\n")
         }
 
-        override fun onSuccess(data: Driver) {
+        override fun onSuccess(data: User) {
             binding.tvDriver.append("$data..\n")
         }
 

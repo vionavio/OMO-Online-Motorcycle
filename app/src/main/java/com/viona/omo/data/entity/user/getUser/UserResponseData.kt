@@ -1,8 +1,9 @@
-package com.viona.omo.data.entity.customer.getcustomer
+package com.viona.omo.data.entity.user.getUser
 
 import com.google.gson.annotations.SerializedName
 
-data class CustomerResponseData(
+
+data class UserResponseData(
     @SerializedName("id")
     val id: String? = null,
 
@@ -10,5 +11,8 @@ data class CustomerResponseData(
     val username: String? = null,
 
     @SerializedName("password")
-    val password: String? = null
+    val password: String? = null,
+
+    @SerializedName("role")
+    val role: String? = null
 )

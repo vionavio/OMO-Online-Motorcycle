@@ -4,17 +4,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.viona.omo.data.entity.driver.register.RegisterDriverRequest
 import com.viona.omo.event.StateEventSubscriber
-import com.viona.omo.repository.driver.DriverRepository
+import com.viona.omo.repository.user.UserRepository
 import com.viona.omo.utils.convertEventToSubscriber
 import kotlinx.coroutines.launch
 import org.koin.core.annotation.Scope
 
 @Scope(RegisterDriverActivity::class)
 class RegisterDriverViewModel(
-    private val driverRepository: DriverRepository
+    private val userRepository: UserRepository
 ) : ViewModel() {
 
-    private val driverManager = driverRepository.registDriver
+    private val driverManager = userRepository.registStateManager
     private val driverScope = driverManager.createScope(viewModelScope)
 
     fun subscribeDriver(subscriber: StateEventSubscriber<Boolean>) {
@@ -22,6 +22,6 @@ class RegisterDriverViewModel(
     }
 
     fun registerDriver(request: RegisterDriverRequest) = driverScope.launch {
-        driverRepository.registerDriver(request)
+        userRepository.registerDriver(request)
     }
 }

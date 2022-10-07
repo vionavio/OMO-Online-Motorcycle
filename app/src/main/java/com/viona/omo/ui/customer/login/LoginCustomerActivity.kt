@@ -2,9 +2,9 @@ package com.viona.omo.ui.customer.login
 
 import android.content.Intent
 import android.os.Bundle
-import com.viona.omo.data.entity.customer.getcustomer.Customer
-import com.viona.omo.data.entity.customer.login.LoginCustomer
-import com.viona.omo.data.entity.customer.login.LoginCustomerRequest
+import com.viona.omo.data.entity.user.getUser.User
+import com.viona.omo.data.entity.user.login.LoginUser
+import com.viona.omo.data.entity.user.login.LoginUserRequest
 import com.viona.omo.data.response.base.ErrorResponse
 import com.viona.omo.databinding.ActivityLoginCustomerBinding
 import com.viona.omo.event.StateEventSubscriber
@@ -25,7 +25,7 @@ class LoginCustomerActivity : ScopeActivity() {
 
         binding.btnLogin.setOnClickListener {
             viewModel.loginCustomer(
-                LoginCustomerRequest(
+                LoginUserRequest(
                     binding.etUsername.text.toString(),
                     binding.etPassword.text.toString()
                 )
@@ -44,7 +44,7 @@ class LoginCustomerActivity : ScopeActivity() {
         viewModel.subscribeGetCustomer(subscribeGetCustomer())
     }
 
-    private fun subscribeCustomer() = object : StateEventSubscriber<LoginCustomer> {
+    private fun subscribeCustomer() = object : StateEventSubscriber<LoginUser> {
         override fun onIdle() {
             binding.tvToken.append("idle..\n")
         }
@@ -57,12 +57,12 @@ class LoginCustomerActivity : ScopeActivity() {
             binding.tvToken.append("${throwable.message}...\n")
         }
 
-        override fun onSuccess(data: LoginCustomer) {
+        override fun onSuccess(data: LoginUser) {
             binding.tvToken.append("$data..\n")
         }
     }
 
-    private fun subscribeGetCustomer() = object : StateEventSubscriber<Customer> {
+    private fun subscribeGetCustomer() = object : StateEventSubscriber<User> {
         override fun onIdle() {
             binding.tvCustomer.append("idle..\n")
         }
@@ -75,7 +75,7 @@ class LoginCustomerActivity : ScopeActivity() {
             binding.tvCustomer.append("${throwable.message}..\n")
         }
 
-        override fun onSuccess(data: Customer) {
+        override fun onSuccess(data: User) {
             binding.tvCustomer.append("$data..\n")
         }
 

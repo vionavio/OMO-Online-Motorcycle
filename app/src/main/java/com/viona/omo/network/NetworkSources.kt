@@ -1,42 +1,26 @@
 package com.viona.omo.network
 
-import com.viona.omo.data.entity.customer.getcustomer.Customer
-import com.viona.omo.data.entity.customer.login.LoginCustomer
-import com.viona.omo.data.entity.customer.login.LoginCustomerRequest
 import com.viona.omo.data.entity.customer.register.RegisterCustomerRequest
-import com.viona.omo.data.entity.driver.getdriver.Driver
-import com.viona.omo.data.entity.driver.login.LoginDriver
-import com.viona.omo.data.entity.driver.login.LoginDriverRequest
 import com.viona.omo.data.entity.driver.register.RegisterDriverRequest
-import com.viona.omo.data.mapper.CustomerMapper
-import com.viona.omo.data.mapper.DriverMapper
+import com.viona.omo.data.entity.user.getUser.User
+import com.viona.omo.data.entity.user.login.LoginUser
+import com.viona.omo.data.entity.user.login.LoginUserRequest
+import com.viona.omo.data.mapper.UserMapper
 import com.viona.omo.utils.FlowState
 import com.viona.omo.utils.Params
 import org.koin.core.annotation.Single
 
 @Single
 class NetworkSources(private val webServicesProvider: WebServiceProvider) {
-    suspend fun loginCustomer(loginRequest: LoginCustomerRequest): FlowState<LoginCustomer> {
+    suspend fun loginUser(loginUser: LoginUserRequest): FlowState<LoginUser> {
         val params = hashMapOf(
-            Params.key_username to loginRequest.username,
-            Params.key_password to loginRequest.password
+            Params.key_username to loginUser.username,
+            Params.key_password to loginUser.password
         )
 
         return networkHandling(
-            callApi = { webServicesProvider.get().loginCustomer(params) },
-            processResponse = { CustomerMapper.mapLoginCustomerResponse(it?.data) }
-        )
-    }
-
-    suspend fun loginDriver(request: LoginDriverRequest): FlowState<LoginDriver> {
-        val param = hashMapOf(
-            Params.key_username to request.username,
-            Params.key_password to request.password
-        )
-
-        return networkHandling(
-            callApi = { webServicesProvider.get().loginDriver(param) },
-            processResponse = { DriverMapper.mapLoginDriverResponse(it?.data) }
+            callApi = { webServicesProvider.get().loginUser(params) },
+            processResponse = { UserMapper.mapLoginUserResponse(it?.data) }
         )
     }
 
@@ -64,19 +48,11 @@ class NetworkSources(private val webServicesProvider: WebServiceProvider) {
         )
     }
 
-    suspend fun getCustomer(): FlowState<Customer> {
+    suspend fun getUser(): FlowState<User> {
         return networkHandling(
-            callApi = { webServicesProvider.get().getCustomer(RemoteService.EndPoint.TOKEN_LOGIN_CUSTOMER)},
-            processResponse = {CustomerMapper.mapGetCustomer(it?.data)}
+            callApi = { webServicesProvider.get().getUser(RemoteService.EndPoint.TOKEN_LOGIN_USER)},
+            processResponse = {UserMapper.mapGetUser(it?.data)}
         )
     }
 
-    suspend fun getDriver(): FlowState<Driver> {
-        return networkHandling(
-            callApi = {
-                webServicesProvider.get().getDriver(RemoteService.EndPoint.TOKEN_LOGIN_DRIVER)
-            },
-            processResponse = {DriverMapper.mapGetDriver(it?.data)}
-        )
-    }
 }
