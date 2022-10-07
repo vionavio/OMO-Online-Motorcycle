@@ -14,3 +14,13 @@ dependencyResolutionManagement {
 }
 rootProject.name = "omo"
 include ':customer'
+include ':driver'
+include ':features:auth'
+include ':application'
+include ':shared:core'
+include ':features:location-api'
+include ':features:transaction'
+include ':shared:koin'
+include ':shared:navigation'
+include ':shared:utils'
+include ':shared:network'
