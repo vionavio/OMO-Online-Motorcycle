@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".OmoApplication"
+        android:name=".login.OmoApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,18 +17,18 @@
         android:theme="@style/Theme.Omo"
         tools:targetApi="31">
         <activity
-            android:name=".ui.customer.home.HomeCustomerActivity"
+            android:name=".login.ui.customer.home.HomeCustomerActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.driver.register.RegisterDriverActivity"
+            android:name=".login.ui.driver.register.RegisterDriverActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.customer.register.RegisterCustomerActivity"
+            android:name=".login.ui.customer.register.RegisterCustomerActivity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".ui.driver.login.LoginDriverActivity" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".ui.customer.login.LoginCustomerActivity"
+            android:name=".login.ui.customer.login.LoginCustomerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
