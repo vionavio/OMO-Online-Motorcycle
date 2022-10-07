@@ -8,6 +8,7 @@ import com.viona.omo.data.entity.user.login.LoginUserRequest
 import com.viona.omo.data.response.base.ErrorResponse
 import com.viona.omo.databinding.ActivityLoginCustomerBinding
 import com.viona.omo.event.StateEventSubscriber
+import com.viona.omo.ui.customer.home.HomeCustomerActivity
 import com.viona.omo.ui.customer.register.RegisterCustomerActivity
 import org.koin.androidx.scope.ScopeActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -58,7 +59,8 @@ class LoginCustomerActivity : ScopeActivity() {
         }
 
         override fun onSuccess(data: LoginUser) {
-            binding.tvToken.append("$data..\n")
+            val intent = Intent(this@LoginCustomerActivity, HomeCustomerActivity::class.java)
+            startActivity(intent)
         }
     }
 

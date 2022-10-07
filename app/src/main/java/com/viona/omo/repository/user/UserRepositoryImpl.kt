@@ -5,7 +5,6 @@ import com.viona.omo.data.entity.driver.register.RegisterDriverRequest
 import com.viona.omo.data.entity.user.getUser.User
 import com.viona.omo.data.entity.user.login.LoginUser
 import com.viona.omo.data.entity.user.login.LoginUserRequest
-import com.viona.omo.data.entity.user.register.RegisterUserRequest
 import com.viona.omo.event.StateEventManager
 import com.viona.omo.network.NetworkSources
 import com.viona.omo.utils.default
