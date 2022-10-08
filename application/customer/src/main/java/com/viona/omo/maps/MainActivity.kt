@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.viona.navigation.attachFragment
 import com.viona.navigation.replaceFragment
 import com.viona.omo.databinding.ActivityMainBinding
-import com.viona.omo.maps.HomeFragment
 import com.viona.search.SearchLocationFragment
 import com.viona.utils.BindingActivity
 import com.viona.utils.listener.findFragmentListener
@@ -30,7 +29,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(), MainActivityListene
 
     private fun onLocation(data: Location) {
         val instance = findFragmentListener<HomeFragmentListener>(homeTag)
-        instance?.onMessageFromActivity("anuan...")
+        instance?.onMessageFromActivity("starting...")
     }
 
     override fun onLocationResult(data: Location) {

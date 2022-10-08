@@ -28,12 +28,15 @@
             android:name=".login.ui.driver.register.RegisterDriverActivity"
             android:exported="false" />
         <activity
+            android:name=".maps.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".login.ui.customer.register.RegisterCustomerActivity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".ui.driver.login.LoginDriverActivity" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".maps.MainActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
