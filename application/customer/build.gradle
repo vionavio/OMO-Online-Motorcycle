@@ -10,7 +10,7 @@ apply from: "$rootDir/gradle/script/features.dependencies.gradle"
 
 android {
     defaultConfig {
-        applicationId "com.utsman.ojeku"
+        applicationId "com.viona.omo"
         minSdk 21
         targetSdk 32
         versionCode 1

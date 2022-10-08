@@ -4,9 +4,11 @@
     package="com.viona.omo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
-        android:name=".login.OmoApplication"
+        android:name=".maps.MainCustomer"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Omo"
         tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAYeg-6slX09r7NfSXfo4BlOjTw7z3_FeI" />
         <activity
             android:name=".login.ui.customer.home.HomeCustomerActivity"
             android:exported="false" />
@@ -28,7 +33,7 @@
         <!-- android:name=".ui.driver.login.LoginDriverActivity" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".login.ui.customer.login.LoginCustomerActivity"
+            android:name=".maps.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

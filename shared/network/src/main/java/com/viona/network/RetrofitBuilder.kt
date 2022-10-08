@@ -27,6 +27,6 @@ class RetrofitBuilder {
     }
 
     companion object {
-        private const val BASE_URL = "https://9667-112-215-65-33.ap.ngrok.io"
+        private const val BASE_URL = "https://omo-online-motorcycle-api.herokuapp.com"
     }
 }
