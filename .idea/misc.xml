@@ -17,6 +17,12 @@
         <entry key="app/src/main/res/layout/activity_login_driver.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register_customer.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_register_driver.xml" value="0.24375" />
+        <entry key="application/customer/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1385" />
+        <entry key="application/customer/src/main/res/drawable/icon_omo.xml" value="0.138" />
+        <entry key="application/customer/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="application/customer/src/main/res/layout/activity_register_customer.xml" value="0.19814814814814816" />
+        <entry key="application/customer/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="application/customer/src/main/res/layout/fragment_home.xml" value="0.23177083333333334" />
       </map>
     </option>
   </component>
